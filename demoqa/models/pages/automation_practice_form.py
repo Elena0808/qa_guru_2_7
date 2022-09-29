@@ -1,6 +1,6 @@
 import os
 
-from selene import have
+from selene import have, command
 from selene.support.shared import browser
 from demoqa.models.controls import dropdown
 from demoqa.models.controls.checkbox import select_checkbox
@@ -8,6 +8,7 @@ from demoqa.models.controls.radiobutton import select_radiobutton
 
 
 def open_page(url, resourses):
+    browser.config.window_height, browser.config.window_width = 1000, 1000
     browser.open(url + resourses)
 
 
@@ -38,7 +39,7 @@ def set_subject(subject_1, subject_2):
 
 def set_hobbies(option, option1):
     select_checkbox('[for^=hobbies-checkbox]', option).first.click()
-    select_checkbox('[for^=hobbies-checkbox]', option1).first.click()
+    select_checkbox('[for^=hobbies-checkbox]', option1).first.click().perform(command.js.scroll_into_view)
 
 
 def abs_path(relative_path):

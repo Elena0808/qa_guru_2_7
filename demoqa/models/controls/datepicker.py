@@ -12,4 +12,4 @@ def select_date_of_bday():
 
 def select_date_of_bday_1(date):
     browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type(date).press_enter()
-    browser.element('#dateOfBirthInput').send_keys(Keys.COMMAND, 'a').type(date).press_enter()
+   # browser.element('#dateOfBirthInput').send_keys(Keys.COMMAND, 'a').type(date).press_enter()
